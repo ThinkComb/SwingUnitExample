@@ -4,14 +4,17 @@
  */
 package unitExample.dialog;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -68,10 +71,16 @@ public class DialogDemo1 extends JDialog {
 
         
         JFrame f = new JFrame("Wallpaper");
+        f.setLayout(new BorderLayout());
         
         JButton b=new JButton("dd");
        
-        f.add(b);
+        f.add(b,BorderLayout.EAST);
+        ImageIcon icon=new ImageIcon("c:\\aa.gif");
+        JLabel lb =new JLabel("ddd");
+        icon.setImageObserver(lb);
+        lb.setIcon(icon);
+        f.add(lb,BorderLayout.CENTER);
         b.addActionListener(new ActionListener(){
 
             @Override
